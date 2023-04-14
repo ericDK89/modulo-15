@@ -1,11 +1,12 @@
 @use "configs/reset.scss";
-
-body {
-  background-color: #f5f6fa;
-}
+@use "configs/variables.scss";
 
 li {
   list-style: none;
+}
+
+body {
+  background-color: variables.$white-200;
 }
 
 .container {
@@ -15,7 +16,7 @@ li {
 }
 
 header {
-  background-color: #182c61;
+  background-color: variables.$blue-800;
   position: sticky;
   top: 0;
   left: 0;
@@ -53,29 +54,29 @@ section {
   column-gap: 1%;
   row-gap: 4%;
   width: 100%;
+
+  .product-item img {
+    width: 100%;
+    border-radius: 16px;
+  }
+
+  .product-button {
+    display: block;
+    background-color: variables.$green-500;
+    color: #fff;
+    text-align: center;
+    padding: 8px 0;
+    border-radius: 8px;
+    margin-top: 8px;
+    text-decoration: none;
+
+    &:hover {
+      background-color: variables.$green-400;
+    }
+  }
 }
 
-.product-item img {
-  width: 100%;
-  border-radius: 16px;
-}
-
-.product-button {
-  display: block;
-  background-color: #44bd32;
-  color: #fff;
-  text-align: center;
-  padding: 8px 0;
-  border-radius: 8px;
-  margin-top: 8px;
-  text-decoration: none;
-}
-
-.product-button:hover {
-  background-color: #4cd137;
-}
-
-@media screen and (max-width: 1023px) {
+@media screen and (max-width: variables.$tablet-screen) {
   .container {
     max-width: 80%;
   }
@@ -86,12 +87,12 @@ section {
   }
 }
 
-@media screen and (max-width: 767px) {
+@media screen and (max-width: variables.$mobile-screen) {
   .products {
     display: block;
-  }
 
-  .product-item {
-    margin-bottom: 32px;
+    .product-item {
+      margin-bottom: 32px;
+    }
   }
 }
